@@ -33,9 +33,9 @@ $Pe = u_0 L/\alpha$.
 **Exact steady solution** (used for validation)
 
 $$
-\phi^{\text{exact}}(x,y) = \sin(\pi y)\,
-\frac{r_2\,e^{r_1 x + r_2 L} - r_1\,e^{r_1 L + r_2 x}}
-     {r_2\,e^{r_2 L} - r_1\,e^{r_1 L}},
+\phi^{\text{exact}}(x,y) = \sin(\pi y)
+\frac{r_2e^{r_1 x + r_2 L} - r_1e^{r_1 L + r_2 x}}
+     {r_2e^{r_2 L} - r_1e^{r_1 L}},
 \qquad
 r_{1,2} = \frac{u_0}{2\alpha} \pm \sqrt{\frac{u_0^2}{4\alpha^2} + \pi^2}
 $$
