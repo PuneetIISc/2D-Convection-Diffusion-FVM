@@ -77,8 +77,8 @@ itermax  maximum_residue
 ## Numerical method
 
 * **Co-volume**: for each face, the diamond area = triangle(n1,n2,incell) + triangle(n1,n2,outcell).
-* **Gradient (`gradient_gg`)**: un-normalised contour integral over the diamond (interior) or triangle (boundary), divided by the co-volume.
-* **Diffusion**: $(1/Pe)\,\nabla\phi\cdot\mathbf{S}_f$ on each face; at the outlet, $\partial\phi/\partial x = 0$ with the tangential term kept.
+* **Face gradient**: computed by a Green–Gauss contour integral around the co-volume — summing the face-averaged values of $\phi$ times the outward edge normals — and dividing by the co-volume area. This gives $\nabla\phi$ at the face for the diffusion flux.
+* **Diffusion**: on each face the diffusive flux is the diffusion coefficient times the gradient projected onto the face's area-normal vector, $\alpha\,\nabla\phi\cdot\mathbf{S}_f$ with $\alpha = 1/Pe$. The gradient is obtained from the Green–Gauss integral over the co-volume, so the scheme stays accurate on skewed cells. At the outlet the normal derivative is set to zero ($\partial\phi/\partial x = 0$), keeping only the tangential variation.
 * **Cell gradient**: co-volume-weighted sum of the face diamond gradients.
 * **Convection**: first- or second-order upwind reconstruction, upwind flux.
 * **Vertex values**: area-weighted or pseudo-Laplacian interpolation from the surrounding cells, with the outlet nodes fixed by a least-squares fit.
@@ -163,7 +163,7 @@ another — an ≈ 8× reduction in iterations at no cost in accuracy.
 <!-- ![Residual convergence](docs/residual_convergence.png) -->
 
 > A full write-up of the method, cases and results is in
-> [`docs/Technical_Report.pdf`](docs/Technical_Report.pdf).
+> [`docs/report/CD2D_Technical_Report.pdf`](docs/report/CD2D_Technical_Report.pdf).
 
 ## References
 
