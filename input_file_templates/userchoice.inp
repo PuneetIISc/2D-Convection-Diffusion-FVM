@@ -1,0 +1,5 @@
+100.0  1.0  1.0  0.0        Pe, L, uvel, vvel
+2  2  2                     order(1/2), nodal_value_option(1=area,2=pseudo-Laplacian), timestep(1=global,2=local)
+1  3  1.0  3                mode_impli(0=RK,1=SGS), rkstage, cfl, cfl_option(1=const,2=ramp,3=ramp+cap)
+6  1.15  1.0e5  0.9         no_of_sweeps, cflmulti, maxcfl, relax
+50000  1.0e-8              itermax, maximum_residue
